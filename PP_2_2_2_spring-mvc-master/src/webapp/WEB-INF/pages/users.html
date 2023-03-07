@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Пользователи</title>
+</head>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+<body>
+<h1>Пользователи</h1>
+<button onclick="window.location.href = '/new';">Добавить нового пользователя</button>
+<br>
+<br>
+<br>
+<table class="table table-dark">
+    <thead>
+
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Имя</th>
+        <th scope="col">Фамилия</th>
+        <th scope="col">Возраст</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="users : ${users}">
+        <td><a th:href="@{'/' + ${users.id}}" th:utext="${users.id}">UsersId</a></td>
+        <td th:text="${users.name}"/>
+        <td th:text="${users.lastName}"/>
+        <td th:text="${users.age}"/>
+        <td>
+            <form th:action="@{'edit/' + ${users.id}}">
+                <input type="submit" class="buttonEdit" value="Изменить"/>
+
+            </form>
+        </td>
+        <td>
+            <form th:method="DELETE" th:action="@{'delete/' + ${users.id}}">
+                <input type="submit" class="buttonDelete" value="Удалить"/>
+            </form>
+        </td>
+    </tr>
+    </tr>
+    </tr>
+    </tbody>
+</table>
+<tr>
+
+</tr>
+</body>
+</html>

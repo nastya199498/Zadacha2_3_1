@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание нового пользователя</title>
+</head>
+<body>
+<h1>Создание нового пользователя</h1>
+<form th:method="POST" th:action="@{/new}" th:object="${users}">
+    <table>
+        <tr>
+            <td>
+                <label for="id">Добавить id</label>
+                <input type="number" th:field="*{id}" id="id" required/>
+                <div th:if="${#fields.hasErrors('id')}" th:errors="*{id}">id error</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="name">Добавить имя</label>
+                <input type="text" th:field="*{name}" id="name" required/>
+                <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name error</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="lastName">Добавить фамилию</label>
+                <input type="text" th:field="*{lastName}" id="lastName" required/>
+                <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">lastName error</div>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <label for="age">Добавить возраст</label>
+                <input type="number" min="0" max="127" th:field="*{age}" id="age">
+                <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}">age error</div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" class="buttonAdd" value="Создать"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Users</title>
+</head>
+<body>
+<h1>Users</h1>
+<table border="1">
+
+    <td th:utext="${users.id}">Id</td>
+    <td th:utext="${users.name}">Имя</td>
+    <td th:utext="${users.lastName}">Фамилия</td>
+    <td th:utext="${users.age}">Возраст</td>
+
+</table>
+<br>
+<button onclick="window.location.href = '../..';">Back to users</button>
+</body>
+</html>
